@@ -4,9 +4,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" These are the defaults, to be overwritten by vim-sleuth
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
@@ -14,8 +20,4 @@ map <C-_> \c<Space>
 
 set path=.**,,
 syntax enable
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
-set autoindent
+
