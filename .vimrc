@@ -13,6 +13,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/repeat-vim'
+Plug 'tpope/repeat-vim'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
