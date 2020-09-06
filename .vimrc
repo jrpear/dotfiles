@@ -1,3 +1,7 @@
+let mapleader=","
+
+syntax enable
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -11,20 +15,45 @@ set expandtab
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'preservim/nerdcommenter'
-Plug 'tpope/vim-sleuth'
+" Core tools
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
-Plug 'godlygeek/tabular'
-Plug 'vim-vdebug/vdebug'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch'
 Plug 'preservim/nerdtree'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+" Small language-specific tools
+Plug 'tpope/vim-ragtag'
+
+" IDE-like, large, intrusive tools
+Plug 'vim-vdebug/vdebug'
+Plug 'vim-syntastic/syntastic'
+
+" To try
+" Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
-map <C-_> \c<Space>
+" For syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-set path=.**,,
-syntax enable
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" For WSL
+command Cp silent w !clip.exe
+
+" For vdebug
+command Pdb silent !python $PYTHONDBGPPATH -S -d localhost:9000 %:p &
+command -nargs=? -bang Ve python3 debugger.handle_eval('<bang>', <q-args>)
 
