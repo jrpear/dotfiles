@@ -57,3 +57,8 @@ command Cp silent w !clip.exe
 command Pdb silent !python $PYTHONDBGPPATH -S -d localhost:9000 %:p &
 command -nargs=? -bang Ve python3 debugger.handle_eval('<bang>', <q-args>)
 
+" Enable project-specific .vimrc
+set exrc
+set secure
+
+
