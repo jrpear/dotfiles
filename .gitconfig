@@ -1,0 +1,7 @@
+[user]
+	email = jackrpearson@pm.me
+	name = Jack Pearson
+[alias]
+	lol = log --oneline --graph --decorate
+	lola = log --oneline --graph --decorate --all
+  
