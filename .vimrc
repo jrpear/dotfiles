@@ -1,7 +1,5 @@
 let mapleader=","
 
-syntax enable
-
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -25,6 +23,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 Plug 'preservim/nerdtree'
 Plug 'godlygeek/tabular'
+Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
@@ -61,4 +60,7 @@ command -nargs=? -bang Ve python3 debugger.handle_eval('<bang>', <q-args>)
 set exrc
 set secure
 
-
+" Set color scheme
+syntax enable
+set background=light
+colorscheme solarized
