@@ -7,6 +7,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias less='less -R'
+
 alias pyhost='python3 -m http.server 8000 --bind 127.0.0.1 & > /tmp/pyhost.log
 echo $! > /tmp/pyhost.pid'
 # SWAP TO USING /var
