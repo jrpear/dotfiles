@@ -5,3 +5,8 @@
 	lol = log --oneline --graph --decorate
 	lola = log --oneline --graph --decorate --all
 	lolc = log --oneline --graph --decorate --color=always
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
