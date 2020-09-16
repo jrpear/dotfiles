@@ -4,4 +4,4 @@
 [alias]
 	lol = log --oneline --graph --decorate
 	lola = log --oneline --graph --decorate --all
-  
+	lolc = log --oneline --graph --decorate --color=always
