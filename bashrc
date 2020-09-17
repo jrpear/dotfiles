@@ -36,4 +36,24 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-test -f ~/.bash_aliases && . ~/.bash_aliases
+# add aliases
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias less='less -R'
+
+alias pyhost='python3 -m http.server 8000 --bind 127.0.0.1 & > /tmp/pyhost.log
+echo $! > /tmp/pyhost.pid'
+# SWAP TO USING /var
+alias pykillhost='xargs kill < /tmp/pyhost.pid; rm /tmp/pyhost.pid'
+
+# include local bashrc
+
+test -f ~/.bashrc.local && . ~/.bashrc.local

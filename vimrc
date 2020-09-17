@@ -14,6 +14,7 @@ set expandtab
 call plug#begin('~/.vim/plugged')
 
 " Core tools
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
