@@ -7,7 +7,8 @@
 	lol = log --oneline --graph --decorate
 	lola = log --oneline --graph --decorate --all
 	lolc = log --oneline --graph --decorate --color=always
-	ctags = !.git/hooks/ctags
+	ctags = "!.git/hooks/ctags "
+	exec = "!exec "
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
