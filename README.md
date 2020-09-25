@@ -1,6 +1,6 @@
 Installation
 
-    git clone git://github.com/nelstrom/dotfiles.git
+    git clone git://github.com/jpear1/dotfiles.git
 
 Create symlinks:
 
