@@ -1,12 +1,17 @@
 [user]
 	email = jackrpearson@pm.me
 	name = Jack Pearson
+[core]
+	excludesfile = ~/.gitignore
 [alias]
 	lol = log --oneline --graph --decorate
 	lola = log --oneline --graph --decorate --all
 	lolc = log --oneline --graph --decorate --color=always
+	ctags = !.git/hooks/ctags
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+[init]
+	templatedir = ~/.git_template
