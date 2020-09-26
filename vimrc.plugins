@@ -30,12 +30,12 @@ Plug 'tpope/vim-ragtag'
 " IDE-like, large, intrusive tools
 " Plug 'vim-vdebug/vdebug'
 " Plug 'vim-syntastic/syntastic'
-" Plug 'neoclide/coc.nvim'
-" Plug 'Shougo/deoplete.nvim'
 
 " To try
 " Plug 'ycm-core/YouCompleteMe'
 " Plug 'airblade/vim-gitgutter'
+" Plug 'neoclide/coc.nvim'
+" Plug 'Shougo/deoplete.nvim'
 
 call plug#end()
 
