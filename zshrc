@@ -18,3 +18,5 @@ function gh() { # git home
 alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
+
+test -f ~/.zshrc.local && source ~/.zshrc.local
