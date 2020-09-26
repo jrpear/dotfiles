@@ -2,6 +2,7 @@ set encoding=utf-8
 
 set nocompatible
 set showcmd
+set inccommand=nosplit
 syntax on
 
 let mapleader=","
@@ -58,7 +59,9 @@ endif
 " Override plugins to disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 
-" Set solarized light color scheme
-set background=light
-colorscheme solarized
-let g:solarized_termtrans=1
+if !exists('g:vscode')
+  " Set solarized light color scheme
+  set background=light
+  colorscheme solarized
+  let g:solarized_termtrans=1
+endif

@@ -6,27 +6,29 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Core tools
+" Core vscode compatible tools
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-dispatch' check if neovim does this natively
-Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-ragtag'
 Plug 'chrisbra/matchit'
+Plug 'godlygeek/tabular'
+
+if !exists('g:vscode')
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'preservim/nerdtree'
-Plug 'godlygeek/tabular'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+" Plug 'tpope/vim-dispatch' check if neovim does this natively
 " Plug 'neomake/neomake'
 
-" Small language-specific tools
-Plug 'tpope/vim-ragtag'
 
 " IDE-like, large, intrusive tools
 " Plug 'vim-vdebug/vdebug'
@@ -37,6 +39,8 @@ Plug 'tpope/vim-ragtag'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'neoclide/coc.nvim'
 " Plug 'Shougo/deoplete.nvim'
+
+endif
 
 call plug#end()
 
