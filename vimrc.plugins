@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-dispatch' check if neovim does this natively
 Plug 'tpope/vim-eunuch'
 Plug 'chrisbra/matchit'
+Plug 'machakann/vim-highlightedyank'
 Plug 'preservim/nerdtree'
 Plug 'godlygeek/tabular'
 Plug 'altercation/vim-colors-solarized'
@@ -52,3 +53,6 @@ let g:syntastic_check_on_wq = 0
 " For vdebug
 command Pdb silent !python $PYTHONDBGPPATH -S -d localhost:9000 %:p &
 command -nargs=? -bang Ve python3 debugger.handle_eval('<bang>', <q-args>)
+
+" For vim-highlightedyank
+let g:highlightedyank_highlight_duration = 200
