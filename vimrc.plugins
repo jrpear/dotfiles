@@ -21,38 +21,28 @@ if !exists('g:vscode')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-vinegar'
 Plug 'machakann/vim-highlightedyank'
-Plug 'preservim/nerdtree'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-" Plug 'tpope/vim-dispatch' check if neovim does this natively
 " Plug 'neomake/neomake'
 
 
 " IDE-like, large, intrusive tools
 " Plug 'vim-vdebug/vdebug'
-" Plug 'vim-syntastic/syntastic'
+" Plug 'neovim/nvim-lspconfig'
+Plug 'dense-analysis/ale'
 
 " To try
-" Plug 'ycm-core/YouCompleteMe'
 " Plug 'airblade/vim-gitgutter'
-" Plug 'neoclide/coc.nvim'
-" Plug 'Shougo/deoplete.nvim'
 
 endif
 
 call plug#end()
 
-" For syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" For ALE
+let g:ale_disable_lsp=1
 
 " For vdebug
 command Pdb silent !python $PYTHONDBGPPATH -S -d localhost:9000 %:p &
