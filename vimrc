@@ -2,8 +2,11 @@ set encoding=utf-8
 
 set nocompatible
 set showcmd
-set inccommand=nosplit
 syntax on
+
+if has('nvim')
+  set inccommand=nosplit
+endif
 
 let mapleader=","
 
