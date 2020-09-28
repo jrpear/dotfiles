@@ -1,10 +1,15 @@
-export ZSH=$(realpath ~/.oh-my-zsh)
+function git_prompt_info() {
+    if [ -d .git ]
+    then
+        BRANCH=$(git branch --show-current /dev/null)
+        echo "git:(%F{red}$BRANCH%f) "
+    fi
+}
 
-ZSH_THEME="robbyrussell"
+setopt PROMPT_SUBST
+PS1='%(?:%{%}➜ :%F{red}%{%}➜ %f) %F{cyan}%c%f $(git_prompt_info)'
 
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+set -o vi
 
 if command -v nvim &> /dev/null
 then
