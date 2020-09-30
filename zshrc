@@ -9,6 +9,11 @@ function git_prompt_info() {
 setopt PROMPT_SUBST
 PS1='%(?:%{%}➜ :%F{red}%{%}➜ %f) %F{cyan}%c%f $(git_prompt_info)'
 
+HISTSIZE=1000
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+
 set -o vi
 
 if command -v nvim &> /dev/null
