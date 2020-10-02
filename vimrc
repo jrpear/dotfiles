@@ -27,8 +27,7 @@ set expandtab
 
 " Make it easier to exit terminal mode in nvim
 if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <M-]> <Esc>
+  tnoremap <M-]> <C-\><C-n>
 endif
 
 " Window switching keybindings
