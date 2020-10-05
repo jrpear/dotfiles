@@ -54,14 +54,16 @@ if has('nvim')
   tnoremap <M-l> <C-\><C-n><C-w>l
 endif
 
-if filereadable(expand("~/.vimrc.plugins"))
+if has('win32')
+  source ~\vimfiles\vimrc.plugins
+else
   source ~/.vimrc.plugins
 endif
 
 " Override plugins to disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 
-if !exists('g:vscode')
+if !exists('g:vscode') && !has('win32')
   " Set solarized light color scheme
   set background=light
   colorscheme solarized
