@@ -17,8 +17,12 @@ Plug 'tpope/vim-ragtag'
 Plug 'chrisbra/matchit'
 Plug 'godlygeek/tabular'
 
+" Vscode compatible ftplugins
+Plug 'lervag/vimtex'
+
 if !exists('g:vscode')
 
+" Core non vscode compatible tools
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-vinegar'
@@ -26,13 +30,11 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'neomake/neomake'
 
-
-" IDE-like, large, intrusive tools
+" IDE-like tools that are a hassle
 " Plug 'vim-vdebug/vdebug'
 " Plug 'neovim/nvim-lspconfig'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 
 " To try
 " Plug 'airblade/vim-gitgutter'
@@ -40,6 +42,27 @@ Plug 'dense-analysis/ale'
 endif
 
 call plug#end()
+
+" Disable non-editor features of vimtex
+let g:vimtex_compiler_enabled=0
+let g:vimtex_complete_enabled=0
+let g:vimtex_fold_enabled=0
+let g:vimtex_format_enabled=0
+let g:vimtex_imaps_enabled=1
+let g:vimtex_include_search_enabled=0
+let g:vimtex_indent_enabled=0
+let g:vimtex_indent_bib_enabled=0
+let g:vimtex_matchparen_enabled=1
+let g:vimtex_mappings_enabled=1
+let g:vimtex_motion_enabled=1
+let g:vimtex_quickfix_enabled=0
+let g:vimtex_text_obj_enabled=1
+let g:vimtex_toc_enabled=0
+let g:vimtex_syntax_enabled=0
+let g:vimtex_view_enabled=0
+
+" Enable vimtex on unknown tex files
+let g:tex_flavor = 'latex'
 
 " For ALE
 let g:ale_disable_lsp=1
