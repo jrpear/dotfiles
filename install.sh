@@ -11,3 +11,4 @@ mkdir -p ~/.config/nvim
 ln -s ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
 mkdir -p ~/.git_template/hooks
 ln -s ~/dotfiles/git_template/hooks/ctags ~/.git_template/hooks/ctags
+ln -s ~/dotfiles/octaverc ~/.octaverc
