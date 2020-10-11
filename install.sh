@@ -2,6 +2,8 @@
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vimrc.plugins ~/.vimrc.plugins
+mkdir -p ~/.vim/after/ftplugin
+ln -s ~/dotfiles/vim/after/ftplugin/tex.vim ~/.vim/after/ftplugin/tex.vim
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/gitignore ~/.gitignore
