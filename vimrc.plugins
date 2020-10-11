@@ -28,6 +28,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-ragtag'
 Plug 'chrisbra/matchit'
 Plug 'godlygeek/tabular'
+Plug 'tommcdo/vim-exchange'
 
 " Vscode compatible ftplugins
 Plug 'lervag/vimtex'
@@ -55,7 +56,7 @@ endif
 
 call plug#end()
 
-" Disable non-editor features of vimtex
+" Disable non-editing features of vimtex
 let g:vimtex_compiler_enabled=0
 let g:vimtex_complete_enabled=0
 let g:vimtex_fold_enabled=0
