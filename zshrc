@@ -19,6 +19,8 @@ set -o vi
 # 200 ms
 KEYTIMEOUT=20
 
+PATH=$PATH:~/.local/bin
+
 if command -v nvim &> /dev/null
 then
     alias vim='nvim'
