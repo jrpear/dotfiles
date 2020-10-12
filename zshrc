@@ -21,14 +21,18 @@ KEYTIMEOUT=20
 
 PATH=$PATH:~/.local/bin
 
+function gh() { # git home
+    cd $(git rev-parse --show-toplevel)
+}
+
+# ALIASES
+
 if command -v nvim &> /dev/null
 then
     alias vim='nvim'
 fi
 
-function gh() { # git home
-    cd $(git rev-parse --show-toplevel)
-}
+alias uchmod='chmod -R a=r,u+w,a+X'
 
 alias ...='../..'
 alias ....='../../..'
