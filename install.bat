@@ -1,8 +1,10 @@
+echo off
+
 rem Core Vim
 
 mkdir %userprofile%\vimfiles
-mklink \D %userprofile%\vimfiles\after %userprofile%\dotfiles\vim\after
-mklink \D %userprofile%\vimfiles\plugin %userprofile%\dotfiles\vim\plugin
+mklink /D %userprofile%\vimfiles\after %userprofile%\dotfiles\vim\after
+mklink /D %userprofile%\vimfiles\plugin %userprofile%\dotfiles\vim\plugin
 mklink %userprofile%\vimfiles\vimrc %userprofile%\dotfiles\vimrc
 mklink %userprofile%\vimfiles\vimrc.plugins %userprofile%\dotfiles\vimrc.plugins
 
