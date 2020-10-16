@@ -1,3 +1,5 @@
+# PROMPT
+
 function git_prompt_info() {
     if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]
     then
@@ -16,16 +18,20 @@ setopt HIST_IGNORE_ALL_DUPS
 
 set -o vi
 
+# ENVIRONMENT
+
+export EDITOR=nvim
+
 # 200 ms
 KEYTIMEOUT=20
 
-PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin
+
+# ALIASES
 
 function gh() { # git home
     cd $(git rev-parse --show-toplevel)
 }
-
-# ALIASES
 
 if command -v nvim &> /dev/null
 then
