@@ -29,6 +29,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'chrisbra/matchit'
 Plug 'godlygeek/tabular'
 Plug 'tommcdo/vim-exchange'
+Plug 'easymotion/vim-easymotion'
 
 " Vscode compatible ftplugins
 Plug 'lervag/vimtex'
@@ -76,6 +77,9 @@ let g:vimtex_view_enabled=0
 
 " Enable vimtex on unknown tex files
 let g:tex_flavor = 'latex'
+
+" Make EasyMotion even easier
+map <Leader> <Plug>(easymotion-prefix)
 
 " For ALE
 let g:ale_disable_lsp=1

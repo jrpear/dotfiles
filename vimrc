@@ -10,9 +10,6 @@ endif
 
 let mapleader=","
 
-" Enable easy file swapping
-nnoremap <Leader><Leader> <C-^>
-
 " For WSL
 command Cp silent w !clip.exe
 
