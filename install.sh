@@ -28,6 +28,8 @@ ln -s ~/dotfiles/gitignore ~/.gitignore
 mkdir -p ~/.git_template/hooks
 ln -s ~/dotfiles/git_template/hooks/ctags ~/.git_template/hooks/ctags
 
-# Octave
+# IPython
 
-ln -s ~/dotfiles/octaverc ~/.octaverc
+mkdir -p ~/.ipython/profile_default
+ln -s ~/dotfiles/ipython/profile_default/ipython_config.py \
+  ~/.ipython/profile_default/ipython_config.py
