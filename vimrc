@@ -8,7 +8,7 @@ if has('nvim')
   set inccommand=nosplit
 endif
 
-let mapleader=","
+let mapleader=" "
 
 " For WSL
 command Cp silent w !clip.exe
