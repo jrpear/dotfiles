@@ -18,10 +18,6 @@ setopt HIST_IGNORE_ALL_DUPS
 
 set -o vi
 
-# ENVIRONMENT
-
-export EDITOR=nvim
-
 # 200 ms
 KEYTIMEOUT=20
 
@@ -36,6 +32,9 @@ function gh() { # git home
 if command -v nvim &> /dev/null
 then
     alias vim='nvim'
+    export EDITOR=nvim
+else
+    export EDITOR=vim
 fi
 
 alias uchmod='chmod -R a=r,u+w,a+X'
