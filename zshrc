@@ -3,7 +3,7 @@
 function git_prompt_info() {
     if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]
     then
-        BRANCH=$(git branch --show-current)
+        BRANCH=$(git branch --show-current 2> /dev/null)
         echo "git:(%F{red}$BRANCH%f) "
     fi
 }
