@@ -9,8 +9,16 @@ ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vimrc.plugins ~/.vimrc.plugins
 mkdir ~/.vim
-ln -s ~/dotfiles/vim/after ~/.vim/after
-ln -s ~/dotfiles/vim/plugin ~/.vim/plugin
+
+if [ ! -e ~/dotfiles/vim/after ]
+then
+  ln -s ~/dotfiles/vim/after ~/.vim/after
+fi
+
+if [ ! -e ~/dotfiles/vim/plugin ]
+then
+  ln -s ~/dotfiles/vim/plugin ~/.vim/plugin
+fi
 
 # Neovim
 
