@@ -38,7 +38,7 @@ ln -s ~/dotfiles/git_template/hooks/ctags ~/.git_template/hooks/ctags
 
 # IPython
 
-mkdir -p ~/.ipython/profile_default
+mkdir -p ~/.ipython/profile_default/startup
 ln -s ~/dotfiles/ipython/profile_default/ipython_config.py \
   ~/.ipython/profile_default/ipython_config.py
 ln -s ~/dotfiles/ipython/profile_default/startup/rc.py ~/.ipython/profile_default/startup/rc.py
