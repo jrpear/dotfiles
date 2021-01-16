@@ -29,12 +29,14 @@ function gh() { # git home
     cd $(git rev-parse --show-toplevel)
 }
 
+alias g=git
+
 if command -v nvim &> /dev/null
 then
-    alias vim='nvim'
+    alias vi=nvim
     export EDITOR=nvim
 else
-    export EDITOR=vim
+    export EDITOR=vi
 fi
 
 alias uchmod='chmod -R a=r,u+w,a+X'

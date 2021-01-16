@@ -4,6 +4,16 @@
 [core]
 	excludesfile = ~/.gitignore
 [alias]
+    a = add
+    ap = add --patch
+	s = status
+	d = diff
+	co = checkout
+	c = commit
+	cane = commit --amend --no-edit
+	br = branch
+	last = log -1 HEAD
+	pr = pull --rebase
 	lol = log --oneline --graph --decorate
 	lola = log --oneline --graph --decorate --all
 	lolc = log --oneline --graph --decorate --color=always
