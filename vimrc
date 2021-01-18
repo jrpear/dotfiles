@@ -18,8 +18,8 @@ set exrc
 set secure
 
 " These are the defaults, to be overwritten by vim-sleuth
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " Make it easier to exit terminal mode in nvim

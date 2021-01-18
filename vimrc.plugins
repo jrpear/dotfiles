@@ -24,7 +24,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-ragtag'
 Plug 'chrisbra/matchit'
 Plug 'godlygeek/tabular'
@@ -37,6 +36,7 @@ Plug 'lervag/vimtex'
 if !exists('g:vscode')
 
 " Core non vscode compatible tools
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-vinegar'
