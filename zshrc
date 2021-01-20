@@ -31,8 +31,9 @@ alias g=git
 
 alias uchmod='chmod -R a=r,u+w,a+X'
 
-alias ...='../..'
-alias ....='../../..'
-alias .....='../../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 test -f ~/.zshrc.local && source ~/.zshrc.local
