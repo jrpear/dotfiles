@@ -19,9 +19,7 @@ setopt HIST_IGNORE_ALL_DUPS
 set -o vi
 
 # 200 ms
-KEYTIMEOUT=20
-
-export PATH=$PATH:~/.local/bin
+export KEYTIMEOUT=20
 
 # ALIASES
 
@@ -30,14 +28,6 @@ function gh() { # git home
 }
 
 alias g=git
-
-if command -v nvim &> /dev/null
-then
-    alias vi=nvim
-    export EDITOR=nvim
-else
-    export EDITOR=vi
-fi
 
 alias uchmod='chmod -R a=r,u+w,a+X'
 
