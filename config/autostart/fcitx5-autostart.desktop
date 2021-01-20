@@ -1,0 +1,10 @@
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=Fcitx5
+Comment=IME Backend
+Path=/usr/bin/fcitx5
+Exec=fcitx5
+Terminal=false
+Categories=Utility;Office;
