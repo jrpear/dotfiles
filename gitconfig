@@ -4,8 +4,8 @@
 [core]
 	excludesfile = ~/.gitignore
 [alias]
-    a = add
-    ap = add --patch
+  a = add
+  ap = add --patch
 	s = status
 	d = diff
 	co = checkout
