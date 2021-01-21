@@ -2,6 +2,7 @@ set encoding=utf-8
 
 set nocompatible
 set showcmd
+set visualbell
 syntax on
 
 if has('nvim')

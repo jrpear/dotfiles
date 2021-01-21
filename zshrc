@@ -15,6 +15,7 @@ HISTSIZE=1000
 
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
+unsetopt BEEP
 
 set -o vi
 
