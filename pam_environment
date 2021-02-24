@@ -4,4 +4,4 @@ XMODIFIERS    DEFAULT=\@im=fcitx
 SDL_IM_MODULE DEFAULT=fcitx
 
 EDITOR        DEFAULT=vi
-PATH          DEFAULT=${PATH}:~/.local/bin
+PATH          DEFAULT=${PATH}:@{HOME}/.local/bin:@{HOME}/.cargo/bin
