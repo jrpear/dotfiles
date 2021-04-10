@@ -19,16 +19,8 @@ ln -s ~/config/fcitx5-autostart.desktop \
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vimrc.plugins ~/.vimrc.plugins
 mkdir ~/.vim
-
-if [ ! -e ~/dotfiles/vim/after ]
-then
-  ln -s ~/dotfiles/vim/after ~/.vim/after
-fi
-
-if [ ! -e ~/dotfiles/vim/plugin ]
-then
-  ln -s ~/dotfiles/vim/plugin ~/.vim/plugin
-fi
+ln -s ~/dotfiles/vim/after ~/.vim/after
+ln -s ~/dotfiles/vim/plugin ~/.vim/plugin
 
 # Neovim
 
