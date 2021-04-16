@@ -1,4 +1,4 @@
-# PROMPT
+# =============================== PROMPT ===============================
 
 function git_prompt_info() {
     if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]
@@ -22,7 +22,7 @@ set -o vi
 # 200 ms
 export KEYTIMEOUT=20
 
-# ALIASES
+# ============================== ALIASES ===============================
 
 function gh() { # git home
     cd $(git rev-parse --show-toplevel)
@@ -37,4 +37,20 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-test -f ~/.zshrc.local && source ~/.zshrc.local
+# ============================= INCLUDES ===============================
+
+if [ -f /opt/asdf-vm/asdf.sh ]; then
+    source /opt/asdf-vm/asdf.sh
+fi
+
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+    source /usr/share/fzf/key-bindings.zsh
+fi
+
+if [ -f /usr/share/fzf/completion.zsh ]; then
+    source /usr/share/fzf/completion.zsh
+fi
+
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
