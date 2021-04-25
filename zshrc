@@ -37,6 +37,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+alias systemctlu='systemctl --user'
+
 # ============================= INCLUDES ===============================
 
 if [ -f /opt/asdf-vm/asdf.sh ]; then
