@@ -31,5 +31,6 @@
     smtpserverport = 587
 [init]
     templatedir = ~/.git_template
+    defaultBranch = master
 [pull]
     rebase = true
