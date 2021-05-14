@@ -39,6 +39,10 @@ alias .....='cd ../../../..'
 
 alias systemctlu='systemctl --user'
 
+if [ -f /usr/share/nvim/runtime/macros/less.sh ]; then
+    alias less=/usr/share/nvim/runtime/macros/less.sh
+fi
+
 # ============================= INCLUDES ===============================
 
 if [ -f /opt/asdf-vm/asdf.sh ]; then
