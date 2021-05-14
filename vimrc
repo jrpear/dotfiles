@@ -23,6 +23,12 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" Make working directory the git root, if possible
+let gitroot = system("git rev-parse --show-toplevel")
+if v:shell_error == 0
+  exec "cd" gitroot
+endif
+
 " Make it easier to exit terminal mode in nvim
 if has('nvim')
   tnoremap <M-[> <C-\><C-n>
