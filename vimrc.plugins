@@ -29,6 +29,7 @@ Plug 'chrisbra/matchit'
 Plug 'godlygeek/tabular'
 Plug 'tommcdo/vim-exchange'
 Plug 'easymotion/vim-easymotion'
+Plug 'embear/vim-localvimrc'
 
 " Vscode compatible ftplugins
 Plug 'lervag/vimtex'
@@ -77,6 +78,9 @@ let g:vimtex_view_enabled=0
 
 " Enable vimtex on unknown tex files
 let g:tex_flavor = 'latex'
+
+" Remember decisions on whether to load lvimrc files
+let g:localvimrc_persistent=2
 
 " Make EasyMotion even easier
 map <Leader> <Plug>(easymotion-prefix)
