@@ -29,6 +29,7 @@ function gh() { # git home
 }
 
 alias g=git
+alias o=xdg-open
 
 alias uchmod='chmod -R a=r,u+w,a+X'
 
