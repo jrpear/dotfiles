@@ -12,7 +12,3 @@ rem Neovim
 
 mkdir %userprofile%\AppData\Local\nvim
 mklink %userprofile%\AppData\Local\nvim\init.vim %userprofile%\dotfiles\config\nvim\init.vim
-
-rem Octave
-
-mklink %userprofile%\.octaverc %userprofile%\dotfiles\octaverc
