@@ -1,11 +1,11 @@
 if has('win32')
-  set runtimepath^=~\vimfiles runtimepath+=~\vimfiles\after
+	set runtimepath^=~\vimfiles runtimepath+=~\vimfiles\after
 else
-  set runtimepath^=~/.vim runtimepath+=~/.vim/after
+	set runtimepath^=~/.vim runtimepath+=~/.vim/after
 endif
 let &packpath = &runtimepath
 if has('win32')
-  source ~\vimfiles\vimrc
+	source ~\vimfiles\vimrc
 else
-  source ~/.vimrc
+	source ~/.vimrc
 endif

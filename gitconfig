@@ -1,36 +1,36 @@
 [user]
-    email = jack@pearson.onl
-    name = Jack Pearson
+	email = jack@pearson.onl
+	name = Jack Pearson
 [core]
-    excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
 [alias]
-    a = add
-    ap = add --patch
-    s = status
-    d = diff
-    co = checkout
-    c = commit
-    cane = commit --amend --no-edit
-    br = branch
-    last = log -1 HEAD
-    pr = pull --rebase
-    lol = log --oneline --graph --decorate
-    lola = log --oneline --graph --decorate --all
-    lolc = log --oneline --graph --decorate --color=always
-    ctags = "!.git/hooks/ctags "
-    exec = "!exec "
+	a = add
+	ap = add --patch
+	s = status
+	d = diff
+	co = checkout
+	c = commit
+	cane = commit --amend --no-edit
+	br = branch
+	last = log -1 HEAD
+	pr = pull --rebase
+	lol = log --oneline --graph --decorate
+	lola = log --oneline --graph --decorate --all
+	lolc = log --oneline --graph --decorate --color=always
+	ctags = "!.git/hooks/ctags "
+	exec = "!exec "
 [merge]
-    tool = vimdiff
-    conflictstyle = diff3
+	tool = vimdiff
+	conflictstyle = diff3
 [mergetool]
-    prompt = false
+	prompt = false
 [sendemail]
-    smtpserver = mail.pearson.onl
-    smtpuser = jack@pearson.onl
-    smtpencryption = tls
-    smtpserverport = 587
+	smtpserver = mail.pearson.onl
+	smtpuser = jack@pearson.onl
+	smtpencryption = tls
+	smtpserverport = 587
 [init]
-    templatedir = ~/.git_template
-    defaultBranch = master
+	templatedir = ~/.git_template
+	defaultBranch = master
 [pull]
-    rebase = true
+	rebase = true
