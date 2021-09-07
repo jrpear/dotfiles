@@ -18,10 +18,7 @@ command Cp silent w !clip.exe
 set exrc
 set secure
 
-" These are the defaults, to be overwritten by vim-sleuth
-set tabstop=2
-set shiftwidth=2
-set expandtab
+set shiftwidth=0
 
 " Make working directory the git root, if possible
 let gitroot = system("git rev-parse --show-toplevel")
