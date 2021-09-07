@@ -28,6 +28,11 @@ function gh() { # git home
     cd $(git rev-parse --show-toplevel)
 }
 
+function swap() {
+  tmpfile=$(mktemp $(dirname "$1")/XXXXXX)
+  mv "$1" "$tmpfile" && mv "$2" "$1" &&  mv "$tmpfile" "$2"
+}
+
 alias g=git
 alias o=xdg-open
 
@@ -46,18 +51,21 @@ fi
 
 # ============================= INCLUDES ===============================
 
-if [ -f /opt/asdf-vm/asdf.sh ]; then
-    source /opt/asdf-vm/asdf.sh
+typeset -a includes
+
+if [ -d /opt/asdf-vm ]; then
+    includes+=($(find /opt/asdf-vm -name 'asdf.sh'))
 fi
 
-if [ -f /usr/share/fzf/key-bindings.zsh ]; then
-    source /usr/share/fzf/key-bindings.zsh
+if [ -d /usr/share/fzf ]; then
+    includes+=($(find /usr/share/fzf -name 'key-bindings.zsh'))
+    includes+=($(find /usr/share/fzf -name 'completion.zsh'))
 fi
 
-if [ -f /usr/share/fzf/completion.zsh ]; then
-    source /usr/share/fzf/completion.zsh
+if [ -d $HOME ]; then
+    includes+=($(find $HOME -maxdepth 1 -name '.zshrc.local'))
 fi
 
-if [ -f ~/.zshrc.local ]; then
-    source ~/.zshrc.local
-fi
+for i in ${includes[*]}; do
+    echo $i
+done
