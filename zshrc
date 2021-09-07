@@ -67,5 +67,5 @@ if [ -d $HOME ]; then
 fi
 
 for i in ${includes[*]}; do
-	echo $i
+	source $i
 done
