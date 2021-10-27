@@ -1,0 +1,21 @@
+{
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "keyboard.dispatch": "keyCode",
+    "workbench.colorTheme": "Solarized Light",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "editor.highlightActiveIndentGuide": false,
+    "editor.renderIndentGuides": false,
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (lualatex)",
+            "tools": [
+                "lualatexmk"
+            ]
+        },
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.outDir": "build",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+}
