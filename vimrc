@@ -26,6 +26,18 @@ if v:shell_error == 0
 	exec "cd" gitroot
 endif
 
+" Trim whitespace on save
+
+function! <SID>StripTrailingWhitespaces()
+  if !&binary && &filetype != 'diff'
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+  endif
+endfun
+
+autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
 " Make it easier to exit terminal mode in nvim
 if has('nvim')
 	tnoremap <M-[> <C-\><C-n>
