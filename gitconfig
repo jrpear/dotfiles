@@ -20,7 +20,7 @@
 	ctags = "!.git/hooks/ctags "
 	exec = "!exec "
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
