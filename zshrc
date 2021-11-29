@@ -20,7 +20,7 @@ unsetopt BEEP
 set -o vi
 
 # 200 ms
-export KEYTIMEOUT=20
+KEYTIMEOUT=20
 
 # ============================== ALIASES ===============================
 
@@ -35,6 +35,8 @@ function swap() {
 
 alias g=git
 alias o=xdg-open
+
+alias glogout='loginctl kill-user $USER'
 
 alias uchmod='chmod -R a=r,u+w,a+X'
 
