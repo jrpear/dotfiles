@@ -4,23 +4,16 @@ function git_prompt_info() {
 	if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]
 	then
 		BRANCH=$(git rev-parse --abbrev-ref --symbolic-full-name HEAD 2> /dev/null)
-		echo "git:(%F{red}$BRANCH%f) "
+		echo "$(tput setaf 12)git:($(tput setaf 1)$BRANCH$(tput setaf 6)$(tput setaf 12)) "
 	fi
 }
 
-setopt PROMPT_SUBST
-PS1='%(?:%{%}➜ :%F{red}%{%}➜ %f) %F{cyan}%c%f $(git_prompt_info)'
+PS1='\u@\h $(tput setaf 6)[\W] $(git_prompt_info)$(tput sgr0)'
 
 HISTSIZE=1000
-
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-unsetopt BEEP
-
+HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
 set -o vi
-
-# 200 ms
-KEYTIMEOUT=20
 
 # ============================== ALIASES ===============================
 
@@ -56,12 +49,12 @@ if [ -d /opt/asdf-vm ]; then
 fi
 
 if [ -d /usr/share/fzf ]; then
-	includes+=($(find /usr/share/fzf -name 'key-bindings.zsh'))
-	includes+=($(find /usr/share/fzf -name 'completion.zsh'))
+	includes+=($(find /usr/share/fzf -name 'key-bindings.bash'))
+	includes+=($(find /usr/share/fzf -name 'completion.bash'))
 fi
 
 if [ -d $HOME ]; then
-	includes+=($(find $HOME -maxdepth 1 -name '.zshrc.local'))
+	includes+=($(find $HOME -maxdepth 1 -name '.bashrc.local'))
 fi
 
 for i in ${includes[*]}; do

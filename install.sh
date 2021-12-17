@@ -6,13 +6,7 @@ ln -s ~/dotfiles/pam_environment ~/.pam_environment
 
 # Zsh
 
-ln -s ~/dotfiles/zshrc ~/.zshrc
-
-# Autostart
-
-mkdir -p ~/.config/autostart
-ln -s ~/config/fcitx5-autostart.desktop \
-  ~/.config/autostart/fcitx5-autostart.desktop
+ln -s ~/dotfiles/bashrc ~/.bashrc
 
 # Core Vim
 
