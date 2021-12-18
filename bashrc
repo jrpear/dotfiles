@@ -1,14 +1,32 @@
 # =============================== PROMPT ===============================
 
-function git_prompt_info() {
+# https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit
+
+CYAN="\[$(tput setaf 6)\]"
+RED="\[$(tput setaf 1)\]"
+EXIT_ATTR="\[$(tput sgr0)\]"
+
+function git_leader {
 	if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]
 	then
-		BRANCH=$(git rev-parse --abbrev-ref --symbolic-full-name HEAD 2> /dev/null)
-		echo "$(tput setaf 12)git:($(tput setaf 1)$BRANCH$(tput setaf 6)$(tput setaf 12)) "
+		echo "git:("
 	fi
 }
 
-PS1='\u@\h $(tput setaf 6)[\W] $(git_prompt_info)$(tput sgr0)'
+function git_branch() {
+	git rev-parse --abbrev-ref --symbolic-full-name HEAD 2> /dev/null
+}
+
+function git_follower () {
+	if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]
+	then
+		echo ") "
+	fi
+}
+
+GIT_PROMPT_INFO="${EXIT_ATTR}\$(git_leader)${RED}\$(git_branch)${EXIT_ATTR}\$(git_follower)"
+
+PS1="${EXIT_ATTR}\u@\h ${CYAN}[\W] ${GIT_PROMPT_INFO}${EXIT_ATTR}"
 
 HISTSIZE=1000
 HISTCONTROL=ignoreboth:erasedups
