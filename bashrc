@@ -27,7 +27,7 @@ function git_follower () {
 
 GIT_PROMPT_INFO="${COLOR_ORIG}\$(git_leader)${COLOR_RED}\$(git_branch)${COLOR_ORIG}\$(git_follower)"
 
-PS1="${COLOR_ORIG}\u@${COLOR_MAGENTA}\h ${COLOR_CYAN}[\W] ${GIT_PROMPT_INFO}${COLOR_ORIG}"
+PS1="${COLOR_ORIG}\u@${COLOR_CYAN}\h ${COLOR_MAGENTA}[\W] ${GIT_PROMPT_INFO}${COLOR_ORIG}"
 
 HISTSIZE=1000
 HISTCONTROL=ignoreboth:erasedups
