@@ -2,9 +2,10 @@
 
 # https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit
 
-CYAN="\[$(tput setaf 6)\]"
-RED="\[$(tput setaf 1)\]"
-EXIT_ATTR="\[$(tput sgr0)\]"
+COLOR_RED="\[$(tput setaf 1)\]"
+COLOR_MAGENTA="\[$(tput setaf 5)\]"
+COLOR_CYAN="\[$(tput setaf 6)\]"
+COLOR_ORIG="\[$(tput op)\]"
 
 function git_leader {
 	if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]
@@ -24,9 +25,9 @@ function git_follower () {
 	fi
 }
 
-GIT_PROMPT_INFO="${EXIT_ATTR}\$(git_leader)${RED}\$(git_branch)${EXIT_ATTR}\$(git_follower)"
+GIT_PROMPT_INFO="${COLOR_ORIG}\$(git_leader)${COLOR_RED}\$(git_branch)${COLOR_ORIG}\$(git_follower)"
 
-PS1="${EXIT_ATTR}\u@\h ${CYAN}[\W] ${GIT_PROMPT_INFO}${EXIT_ATTR}"
+PS1="${COLOR_ORIG}\u@${COLOR_MAGENTA}\h ${COLOR_CYAN}[\W] ${GIT_PROMPT_INFO}${COLOR_ORIG}"
 
 HISTSIZE=1000
 HISTCONTROL=ignoreboth:erasedups
