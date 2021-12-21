@@ -45,19 +45,26 @@ function swap() {
 	mv "$1" "$tmpfile" && mv "$2" "$1" &&  mv "$tmpfile" "$2"
 }
 
+function rebwin() {
+	local bootnum=$(sudo efibootmgr | grep 'Windows Boot Manager' | sed -e 's/Boot\([0-9]\)*.*/\1/')
+	sudo efibootmgr -n $bootnum
+	sudo reboot
+}
+
 alias g=git
 alias o=xdg-open
 
 alias glogout='loginctl kill-user $USER'
+alias loghack='sudo systemctl emergency'
 
 alias uchmod='chmod -R a=r,u+w,a+X'
+
+alias systemctlu='systemctl --user'
 
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-
-alias systemctlu='systemctl --user'
 
 # ============================= INCLUDES ===============================
 
