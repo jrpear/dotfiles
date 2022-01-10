@@ -3,14 +3,18 @@
 # Bash
 
 ln -s ~/dotfiles/bashrc ~/.bashrc
+ln -s ~/dotfiles/bash_profile ~/.bash_profile
 
 # Core Vim
 
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vimrc.plugins ~/.vimrc.plugins
-mkdir ~/.vim
-ln -s ~/dotfiles/vim/after ~/.vim/after
-ln -s ~/dotfiles/vim/plugin ~/.vim/plugin
+if [ ! -d ~/.vim ]
+then
+  mkdir ~/.vim
+  ln -s ~/dotfiles/vim/after ~/.vim/after
+  ln -s ~/dotfiles/vim/plugin ~/.vim/plugin
+fi
 
 # Neovim
 
