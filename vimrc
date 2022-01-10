@@ -79,7 +79,7 @@ autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 " Enable comments in matlab
 autocmd FileType matlab setlocal commentstring=\%\ %s
 
-if !exists('g:vscode') && !has('win32')
+if !exists('g:vscode') && !has('win32') && $TERM != 'linux'
 	" Set solarized light color scheme
 	set background=light
 	colorscheme solarized
