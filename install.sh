@@ -1,10 +1,6 @@
 #!/bin/sh
 
-# Environment variables
-
-ln -s ~/dotfiles/pam_environment ~/.pam_environment
-
-# Zsh
+# Bash
 
 ln -s ~/dotfiles/bashrc ~/.bashrc
 
