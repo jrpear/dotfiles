@@ -1,3 +1,9 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 # =============================== PROMPT ===============================
 
 # https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit
@@ -32,6 +38,7 @@ PS1="${COLOR_ORIG}\u@${COLOR_CYAN}\h ${COLOR_MAGENTA}[\W] ${GIT_PROMPT_INFO}${CO
 HISTSIZE=1000
 HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
+shopt -s checkwinsize
 set -o vi
 
 # ============================== ALIASES ===============================
@@ -86,3 +93,4 @@ fi
 for i in ${includes[*]}; do
 	source $i
 done
+
