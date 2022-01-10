@@ -20,6 +20,9 @@ set secure
 
 set shiftwidth=0
 
+" Set path using C preprocessor path
+let &path = system("cpp -v </dev/null 2>&1 | tr '\\n' ' ' | sed 's/^.*#include <.*:\\(.*\\) End.*$/\\1/g' | tr -s '[:space:]' ',' | sed 's/^,//; s/\\([^,]\\)$/\\1,/'")
+
 " Make working directory the git root, if possible
 let gitroot = system("git rev-parse --show-toplevel")
 if v:shell_error == 0
