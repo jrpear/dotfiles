@@ -39,6 +39,12 @@ ln -s ~/dotfiles/ipython/profile_default/ipython_config.py \
   ~/.ipython/profile_default/ipython_config.py
 ln -s ~/dotfiles/ipython/profile_default/startup/rc.py ~/.ipython/profile_default/startup/rc.py
 
+# Sway
+
+mkdir -p ~/.config/sway
+ln -s ~/dotfiles/config/sway/config ~/.config/sway/config
+ln -s ~/dotfiles/config/swaylock/config ~/.config/swaylock/config
+
 # VSCode
 
 mkdir -p ~/.config/Code/User
