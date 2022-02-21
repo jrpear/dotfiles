@@ -9,7 +9,7 @@ set $down j
 set $up k
 set $right l
 set $term foot
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu j4-dmenu-desktop
 
 include /etc/sway/config-vars.d/*
 
@@ -17,10 +17,20 @@ include /etc/sway/config-vars.d/*
 
 output * bg "~/Pictures/Backgrounds/Violet Evergarden Fields and Sky.png" fill
 
+output HDMI-A-1 {
+    resolution 1920x1080
+    pos 1700 0
+}
+
+output eDP-1 {
+    resolution 1920x1080
+    pos 0 1080
+}
+
 ### Idle configuration
 
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaylock -f -c 000000' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep "swaylock -f -c 000000"
 
@@ -33,7 +43,6 @@ input "type:keyboard" {
 input "type:touchpad" {
     dwt enabled
     tap enabled
-    natural_scroll enabled
 }
 
 ### Key bindings
