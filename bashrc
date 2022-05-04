@@ -54,9 +54,13 @@ function swap() {
 }
 
 function rebwin() {
-	local bootnum=$(sudo efibootmgr | grep 'Windows Boot Manager' | sed -e 's/Boot\([0-9]\)*.*/\1/')
+	local bootnum=$(efibootmgr | grep 'Windows Boot Manager' | sed -e 's/Boot\([0-9]\)*.*/\1/')
 	sudo efibootmgr -n $bootnum
-	sudo reboot
+	reboot
+}
+
+function vinfo() {
+	vim -c "Vinfo $1" -c "silent only"
 }
 
 alias g=git
