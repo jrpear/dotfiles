@@ -85,11 +85,11 @@ let g:localvimrc_persistent=2
 map <Leader> <Plug>(easymotion-prefix)
 
 " For ALE
-let g:ale_disable_lsp=1
+" let g:ale_disable_lsp=1
 
 " For vdebug
-command Pdb silent !python $PYTHONDBGPPATH -S -d localhost:9000 %:p &
-command -nargs=? -bang Ve python3 debugger.handle_eval('<bang>', <q-args>)
+" command Pdb silent !python $PYTHONDBGPPATH -S -d localhost:9000 %:p &
+" command -nargs=? -bang Ve python3 debugger.handle_eval('<bang>', <q-args>)
 
 " For vim-highlightedyank
 let g:highlightedyank_highlight_duration = 200
