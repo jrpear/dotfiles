@@ -1,62 +1,23 @@
-if has('win32')
-	if empty(glob('~\vimfiles\autoload\plug.vim'))
-		silent !curl -fLo \%userprofile\%\vimfiles\autoload\plug.vim --create-dirs
-			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	endif
-else
-	if empty(glob('~/.vim/autoload/plug.vim'))
-		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	endif
-endif
-
-if has('win32')
-	call plug#begin('~\vimfiles\plugged')
-else
-	call plug#begin('~/.vim/plugged')
-endif
-
-" Core vscode compatible tools
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-ragtag'
-Plug 'chrisbra/matchit'
-Plug 'godlygeek/tabular'
-Plug 'tommcdo/vim-exchange'
-Plug 'easymotion/vim-easymotion'
-Plug 'embear/vim-localvimrc'
-
-" Vscode compatible ftplugins
-Plug 'lervag/vimtex'
-
 if !exists('g:vscode')
 
-" Core non vscode compatible tools
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-vinegar'
-Plug 'machakann/vim-highlightedyank'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'HiPhish/info.vim'
+" non-vscode compatible tools
+packadd! vim-eunuch
+packadd! vim-fugitive
+packadd! vim-sleuth
+packadd! vim-highlightedyank
+packadd! fzf
+packadd! fzf.vim
+packadd! info.vim
 
 " IDE-like tools that are a hassle
-" Plug 'vim-vdebug/vdebug'
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'dense-analysis/ale'
+" - vdebug
+" - nvim-lspconfig
+" - ale
 
 " To try
-" Plug 'airblade/vim-gitgutter'
+" - vim-gitgutter
 
 endif
-
-call plug#end()
 
 " Disable non-editing features of vimtex
 let g:vimtex_compiler_enabled=0

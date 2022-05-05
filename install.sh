@@ -9,12 +9,7 @@ ln -s ${PWD}/bash_profile ~/.bash_profile 2>/dev/null
 
 ln -s ${PWD}/vimrc ~/.vimrc 2>/dev/null
 ln -s ${PWD}/vimrc.plugins ~/.vimrc.plugins 2>/dev/null
-if [ ! -d ~/.vim ]
-then
-  mkdir ~/.vim
-  ln -s ${PWD}/vim/after ~/.vim/after
-  ln -s ${PWD}/vim/plugin ~/.vim/plugin
-fi
+ln -s ${PWD}/vim ~/.vim 2>/dev/null
 
 # Neovim
 

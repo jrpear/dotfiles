@@ -1,0 +1,51 @@
+[submodule "vim/pack/jrpear/start/matchit"]
+	path = vim/pack/jrpear/start/matchit
+	url = https://github.com/chrisbra/matchit.git
+[submodule "vim/pack/jrpear/start/tabular"]
+	path = vim/pack/jrpear/start/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/pack/jrpear/start/vim-commentary"]
+	path = vim/pack/jrpear/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/pack/jrpear/start/vim-easymotion"]
+	path = vim/pack/jrpear/start/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion.git
+[submodule "vim/pack/jrpear/start/vim-exchange"]
+	path = vim/pack/jrpear/start/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange.git
+[submodule "vim/pack/jrpear/start/vim-highlightedyank"]
+	path = vim/pack/jrpear/start/vim-highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank.git
+[submodule "vim/pack/jrpear/start/vim-ragtag"]
+	path = vim/pack/jrpear/start/vim-ragtag
+	url = https://github.com/tpope/vim-ragtag.git
+[submodule "vim/pack/jrpear/start/vim-repeat"]
+	path = vim/pack/jrpear/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/pack/jrpear/start/vim-surround"]
+	path = vim/pack/jrpear/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/pack/jrpear/start/vimtex"]
+	path = vim/pack/jrpear/start/vimtex
+	url = https://github.com/lervag/vimtex.git
+[submodule "vim/pack/jrpear/start/vim-unimpaired"]
+	path = vim/pack/jrpear/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "vim/pack/jrpear/opt/fzf.vim"]
+	path = vim/pack/jrpear/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/pack/jrpear/opt/info.vim"]
+	path = vim/pack/jrpear/opt/info.vim
+	url = https://github.com/HiPhish/info.vim.git
+[submodule "vim/pack/jrpear/opt/vim-eunuch"]
+	path = vim/pack/jrpear/opt/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "vim/pack/jrpear/opt/vim-fugitive"]
+	path = vim/pack/jrpear/opt/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/pack/jrpear/opt/vim-sleuth"]
+	path = vim/pack/jrpear/opt/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule "vim/pack/jrpear/opt/fzf"]
+	path = vim/pack/jrpear/opt/fzf
+	url = https://github.com/junegunn/fzf.git
