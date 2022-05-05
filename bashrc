@@ -61,7 +61,7 @@ function rebwin() {
 }
 
 function vinfo() {
-	vim -c "Vinfo $1" -c "silent only"
+	vim -c "Info $1" -c "silent only"
 }
 
 alias g=git

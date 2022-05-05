@@ -44,7 +44,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'alx741/vinfo'
+Plug 'HiPhish/info.vim'
 
 " IDE-like tools that are a hassle
 " Plug 'vim-vdebug/vdebug'
