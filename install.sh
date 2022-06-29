@@ -1,48 +1,53 @@
-#!/bin/sh
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
 
 # Bash
 
-ln -s ${PWD}/bashrc ~/.bashrc 2>/dev/null
-ln -s ${PWD}/bash_profile ~/.bash_profile 2>/dev/null
+ln -s ${SCRIPT_DIR}/bashrc ${HOME}/.bashrc 2>/dev/null
+ln -s ${SCRIPT_DIR}/bash_profile ${HOME}/.bash_profile 2>/dev/null
 
 # Core Vim
 
-ln -s ${PWD}/vimrc ~/.vimrc 2>/dev/null
-ln -s ${PWD}/vimrc.plugins ~/.vimrc.plugins 2>/dev/null
-ln -s ${PWD}/vim ~/.vim 2>/dev/null
+ln -s ${SCRIPT_DIR}/vimrc ${HOME}/.vimrc 2>/dev/null
+ln -s ${SCRIPT_DIR}/vimrc.plugins ${HOME}/.vimrc.plugins 2>/dev/null
+ln -s ${SCRIPT_DIR}/vim ${HOME}/.vim --no-target-directory 2>/dev/null
 
 # Neovim
 
-mkdir -p ~/.config/nvim
-ln -s ${PWD}/config/nvim/init.vim ~/.config/nvim/init.vim 2>/dev/null
+mkdir -p ${HOME}/.config/nvim
+mkdir -p ${HOME}/.local/share/nvim
+ln -s ${SCRIPT_DIR}/vimrc ${HOME}/.config/nvim/init.vim 2>/dev/null
+ln -s ${SCRIPT_DIR}/vimrc.plugins ${HOME}/.config/nvim/plugins.vim 2>/dev/null
+ln -s ${SCRIPT_DIR}/vim ${HOME}/.local/share/nvim/site --no-target-directory #2>/dev/null
 
 # Tmux
 
-ln -s ${PWD}/tmux.conf ~/.tmux.conf 2>/dev/null
+ln -s ${SCRIPT_DIR}/tmux.conf ${HOME}/.tmux.conf 2>/dev/null
 
 # Git
 
-ln -s ${PWD}/gitconfig ~/.gitconfig 2>/dev/null
-ln -s ${PWD}/gitignore ~/.gitignore 2>/dev/null
-mkdir -p ~/.git_template/hooks
-ln -s ${PWD}/git_template/hooks/ctags ~/.git_template/hooks/ctags 2>/dev/null
+ln -s ${SCRIPT_DIR}/gitconfig ${HOME}/.gitconfig 2>/dev/null
+ln -s ${SCRIPT_DIR}/gitignore ${HOME}/.gitignore 2>/dev/null
+mkdir -p ${HOME}/.git_template/hooks
+ln -s ${SCRIPT_DIR}/git_template/hooks/ctags ${HOME}/.git_template/hooks/ctags 2>/dev/null
 
 # IPython
 
-mkdir -p ~/.ipython/profile_default/startup
-ln -s ${PWD}/ipython/profile_default/ipython_config.py \
-  ~/.ipython/profile_default/ipython_config.py 2>/dev/null
-ln -s ${PWD}/ipython/profile_default/startup/rc.py \
-  ~/.ipython/profile_default/startup/rc.py 2>/dev/null
+mkdir -p ${HOME}/.ipython/profile_default/startup
+ln -s ${SCRIPT_DIR}/ipython/profile_default/ipython_config.py \
+  ${HOME}/.ipython/profile_default/ipython_config.py 2>/dev/null
+ln -s ${SCRIPT_DIR}/ipython/profile_default/startup/rc.py \
+  ${HOME}/.ipython/profile_default/startup/rc.py 2>/dev/null
 
 # Sway
 
-mkdir -p ~/.config/sway{,lock}
-ln -s ${PWD}/config/sway/config ~/.config/sway/config 2>/dev/null
-ln -s ${PWD}/config/swaylock/config ~/.config/swaylock/config 2>/dev/null
+mkdir -p ${HOME}/.config/sway{,lock}
+ln -s ${SCRIPT_DIR}/config/sway/config ${HOME}/.config/sway/config 2>/dev/null
+ln -s ${SCRIPT_DIR}/config/swaylock/config ${HOME}/.config/swaylock/config 2>/dev/null
 
 # VSCode
 
-mkdir -p ~/.config/Code/User
-ln -s ${PWD}/config/Code/User/settings.json \
-  ~/.config/Code/User/settings.json 2>/dev/null
+mkdir -p ${HOME}/.config/Code/User
+ln -s ${SCRIPT_DIR}/config/Code/User/settings.json \
+  ${HOME}/.config/Code/User/settings.json 2>/dev/null

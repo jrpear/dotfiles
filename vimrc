@@ -20,8 +20,9 @@ set secure
 
 set shiftwidth=0
 
-" Set path using C preprocessor path
-let &path = system("cpp -v </dev/null 2>&1 | tr '\\n' ' ' | sed 's/^.*#include <.*:\\(.*\\) End.*$/\\1/g' | tr -s '[:space:]' ',' | sed 's/^,//; s/\\([^,]\\)$/\\1,/'")
+set linebreak
+
+let &dictionary="/usr/share/dict/words"
 
 " Make working directory the git root, if possible
 let gitroot = system("git rev-parse --show-toplevel")
@@ -72,6 +73,8 @@ endif
 
 if has('win32')
 	source ~\vimfiles\vimrc.plugins
+elseif has('nvim')
+	source ~/.config/nvim/plugins.vim
 else
 	source ~/.vimrc.plugins
 endif
