@@ -31,9 +31,18 @@ function git_follower () {
 	fi
 }
 
+function user() {
+	if [ ${USER} = "root" ]
+	then
+		echo "${COLOR_RED}${USER}${COLOR_ORIG}"
+	else
+		echo "${COLOR_ORIG}${USER}"
+	fi
+}
+
 GIT_PROMPT_INFO="${COLOR_ORIG}\$(git_leader)${COLOR_RED}\$(git_branch)${COLOR_ORIG}\$(git_follower)"
 
-PS1="${COLOR_ORIG}\u@${COLOR_CYAN}\h${COLOR_ORIG} ${COLOR_MAGENTA}[\W]${COLOR_ORIG} ${GIT_PROMPT_INFO}${COLOR_ORIG}"
+PS1="$(user)@${COLOR_CYAN}\h${COLOR_ORIG} ${COLOR_MAGENTA}[\W]${COLOR_ORIG} ${GIT_PROMPT_INFO}${COLOR_ORIG}"
 
 HISTSIZE=1000
 HISTCONTROL=ignoreboth:erasedups
@@ -71,6 +80,8 @@ alias glogout='loginctl kill-user $USER'
 alias loghack='sudo systemctl emergency'
 
 alias uchmod='chmod -R a=r,u+w,a+X'
+
+alias ssh-hosts="grep -P \"^Host ([^*]+)$\" $HOME/.ssh/config | sed 's/Host //'"
 
 alias systemctlu='systemctl --user'
 
