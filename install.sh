@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
+SCRIPT_DIR=$(realpath $(dirname "${BASH_SOURCE[0]}"))
 
 # Bash
 
@@ -19,7 +19,7 @@ mkdir -p ${HOME}/.config/nvim
 mkdir -p ${HOME}/.local/share/nvim
 ln -s ${SCRIPT_DIR}/vimrc ${HOME}/.config/nvim/init.vim 2>/dev/null
 ln -s ${SCRIPT_DIR}/vimrc.plugins ${HOME}/.config/nvim/plugins.vim 2>/dev/null
-ln -s ${SCRIPT_DIR}/vim ${HOME}/.local/share/nvim/site --no-target-directory #2>/dev/null
+ln -s ${SCRIPT_DIR}/vim ${HOME}/.local/share/nvim/site --no-target-directory 2>/dev/null
 
 # Tmux
 
@@ -51,3 +51,5 @@ ln -s ${SCRIPT_DIR}/config/swaylock/config ${HOME}/.config/swaylock/config 2>/de
 mkdir -p ${HOME}/.config/Code/User
 ln -s ${SCRIPT_DIR}/config/Code/User/settings.json \
   ${HOME}/.config/Code/User/settings.json 2>/dev/null
+
+git submodule update --init --recursive
