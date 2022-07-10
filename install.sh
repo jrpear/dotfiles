@@ -2,6 +2,12 @@
 
 SCRIPT_DIR=$(realpath $(dirname "${BASH_SOURCE[0]}"))
 
+# Environment variables
+
+mkdir -p ${HOME}/.config/environment.d
+ln -s ${SCRIPT_DIR}/config/environment.d/ff-wayland.conf \
+  ${HOME}/.config/environment.d/ff-wayland.conf 2>/dev/null
+
 # Bash
 
 ln -s ${SCRIPT_DIR}/bashrc ${HOME}/.bashrc 2>/dev/null
