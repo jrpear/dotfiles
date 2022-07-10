@@ -4,8 +4,6 @@
     "workbench.colorTheme": "Solarized Light",
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
-    "editor.highlightActiveIndentGuide": false,
-    "editor.renderIndentGuides": false,
     "C_Cpp.clang_format_fallbackStyle": "LLVM",
     "latex-workshop.latex.recipes": [
         {
@@ -35,4 +33,7 @@
     "latex-workshop.latex.autoBuild.run": "onSave",
     "workbench.startupEditor": "none",
     "git.autofetch": true,
+    "security.workspace.trust.enabled": false,
+    "editor.guides.indentation": false,
+    "editor.guides.highlightActiveIndentation": false,
 }
