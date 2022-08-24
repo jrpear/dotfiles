@@ -28,6 +28,10 @@ USER_DOWNLOADS="${HOME}/Downloads"
 WINDOWS_DISK_NAMES=([10]="${STATE_DIR}/windows10.qcow2" [11]="${STATE_DIR}/windows11.qcow2")
 WINDOWS_INSTALL_MEDIA=([10]="${USER_DOWNLOADS}/Win10_21H2_English_x64.iso" [11]="${USER_DOWNLOADS}/Win11_English_x64v1.iso")
 
+SHARED_DISK_NAME=shared_disk.raw
+SHARED_DISK="${STATE_DIR}/${SHARED_DISK_NAME}"
+SHARED_DISK_SIZE="20G"
+
 DISK_SIZE="100G"
 
 QEMU_BASE_ARGS="\
@@ -38,6 +42,7 @@ QEMU_BASE_ARGS="\
         -chardev socket,id=chrtpm,path=${TPM_CTRL_SOCK} \
         -tpmdev emulator,id=tpm0,chardev=chrtpm \
         -device tpm-tis,tpmdev=tpm0 \
+        -hdb ${SHARED_DISK}
 "
 
 QEMU_ARGS=(
@@ -73,6 +78,14 @@ function launch_tpm () {
                 &
 }
 
+function setup_shared_disk () {
+        qemu-img create -f raw "${SHARED_DISK}" ${SHARED_DISK_SIZE}
+        local fdisk_commands=$'g\nn\n\n\n\nw\n' # new GPT, new partition, default partition #, default start, default end, write changes
+        fdisk ${SHARED_DISK} <<<"${fdisk_commands}"
+        local loop_dev=$(udisksctl loop-setup -f "${SHARED_DISK}" | sed -n '/loop/s/^.*\(\/dev\/loop[[:digit:]]\).*$/\1/; T; p')
+        mkfs.fat ${loop_dev}p1
+        udisksctl loop-delete --block-device ${loop_dev}
+}
 
 function install () {
         local windows_version=$1
@@ -85,6 +98,10 @@ function install () {
 
         mkdir -p "${STATE_DIR}"
         qemu-img create -f qcow2 "${windows_disk_name}" ${DISK_SIZE}
+        if [ ! -e "${SHARED_DISK}" ]; then
+                setup_shared_disk
+        fi
+
         cp "${BIOS_CODE_SRC}" "${bios_code}"
         cp "${BIOS_VARS_SRC}" "${bios_vars}"
 
@@ -94,6 +111,7 @@ function install () {
                 -cdrom ${WINDOWS_INSTALL_MEDIA[${windows_version}]} \
                 -nic none \
         "
+        echo "REMEMBER TO PRESS ANY BUTTON IN QEMU TO TRIGGER BOOT"
         qemu-system-x86_64 ${qemu_args}
 }
 
@@ -105,6 +123,7 @@ function launch () {
         fi
 
         launch_tpm
+        echo "REMEMBER TO PRESS ANY BUTTON IN QEMU TO TRIGGER BOOT"
         qemu-system-x86_64 ${qemu_args}
 }
 
@@ -115,3 +134,4 @@ elif [ "${ACTION}" = 'install' ] ; then
 else
         usage
 fi
+
