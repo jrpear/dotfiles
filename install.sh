@@ -52,6 +52,11 @@ mkdir -p ${HOME}/.config/sway{,lock}
 ln -s ${SCRIPT_DIR}/config/sway/config ${HOME}/.config/sway/config 2>/dev/null
 ln -s ${SCRIPT_DIR}/config/swaylock/config ${HOME}/.config/swaylock/config 2>/dev/null
 
+# Alacritty
+
+mkdir -p ${HOME}/.config/alacritty
+ln -s ${SCRIPT_DIR}/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+
 # VSCode
 
 mkdir -p ${HOME}/.config/Code/User
