@@ -42,19 +42,19 @@ QEMU_BASE_ARGS="\
         -chardev socket,id=chrtpm,path=${TPM_CTRL_SOCK} \
         -tpmdev emulator,id=tpm0,chardev=chrtpm \
         -device tpm-tis,tpmdev=tpm0 \
-        -hdb ${SHARED_DISK}
+        -drive file=${SHARED_DISK},format=raw,if=ide,index=1 \
 "
 
 QEMU_ARGS=(
         [10]="\
                 ${QEMU_BASE_ARGS} \
-                -hda ${WINDOWS_DISK_NAMES[10]} \
+                -drive file=${WINDOWS_DISK_NAMES[10]},format=qcow2,if=ide,index=0 \
                 -drive file=${BIOS_CODES[10]},format=raw,if=pflash \
                 -drive file=${BIOS_VARSS[10]},format=raw,if=pflash \
         "
         [11]="\
                 ${QEMU_BASE_ARGS} \
-                -hda ${WINDOWS_DISK_NAMES[11]} \
+                -drive file=${WINDOWS_DISK_NAMES[11]},format=qcow2,if=ide,index=0 \
                 -drive file=${BIOS_CODES[11]},format=raw,if=pflash \
                 -drive file=${BIOS_VARSS[11]},format=raw,if=pflash \
         "
@@ -80,11 +80,7 @@ function launch_tpm () {
 
 function setup_shared_disk () {
         qemu-img create -f raw "${SHARED_DISK}" ${SHARED_DISK_SIZE}
-        local fdisk_commands=$'g\nn\n\n\n\nw\n' # new GPT, new partition, default partition #, default start, default end, write changes
-        fdisk ${SHARED_DISK} <<<"${fdisk_commands}"
-        local loop_dev=$(udisksctl loop-setup -f "${SHARED_DISK}" | sed -n '/loop/s/^.*\(\/dev\/loop[[:digit:]]\).*$/\1/; T; p')
-        mkfs.fat ${loop_dev}p1
-        udisksctl loop-delete --block-device ${loop_dev}
+        echo "USE WINDOWS DISK MANAGEMENT TO FORMAT DRIVE"
 }
 
 function install () {
@@ -94,6 +90,10 @@ function install () {
         local bios_vars=${BIOS_VARSS[${windows_version}]}
         if [ -z "${windows_disk_name}" ]; then
                 usage
+        fi
+
+        if [ ${windows_version} -eq 11 ]; then
+                echo 'NO NET WORKAROUND: open cmd with Shift + F10 and type OOBE\BYPASSNRO'
         fi
 
         mkdir -p "${STATE_DIR}"
@@ -123,7 +123,6 @@ function launch () {
         fi
 
         launch_tpm
-        echo "REMEMBER TO PRESS ANY BUTTON IN QEMU TO TRIGGER BOOT"
         qemu-system-x86_64 ${qemu_args}
 }
 
@@ -131,6 +130,8 @@ if [ "${ACTION}" = 'launch' ] ; then
         launch $*
 elif [ "${ACTION}" = 'install' ] ; then
         install $*
+elif [ "${ACTION}" = 'setup-shared' ] ; then
+        setup_shared_disk
 else
         usage
 fi
