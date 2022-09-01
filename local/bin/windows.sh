@@ -83,6 +83,13 @@ function setup_shared_disk () {
         echo "USE WINDOWS DISK MANAGEMENT TO FORMAT DRIVE"
 }
 
+function mount_shared_disk () {
+        loop_dev=$(udisksctl loop-setup --file ${SHARED_DISK} | sed -E 's/Mapped file .* as ([^[:space:]]*)\./\1/')
+        trap "udisksctl loop-delete --block-device ${loop_dev}" SIGTERM SIGINT EXIT
+        trap "umount ${loop_dev}* 2>/dev/null" SIGTERM SIGINT EXIT
+        sleep infinity
+}
+
 function install () {
         local windows_version=$1
         local windows_disk_name=${WINDOWS_DISK_NAMES[${windows_version}]}
@@ -132,6 +139,8 @@ elif [ "${ACTION}" = 'install' ] ; then
         install $*
 elif [ "${ACTION}" = 'setup-shared' ] ; then
         setup_shared_disk
+elif [ "${ACTION}" = 'mount-shared' ] ; then
+        mount_shared_disk
 else
         usage
 fi
