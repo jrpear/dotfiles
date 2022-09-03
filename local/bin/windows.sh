@@ -13,6 +13,10 @@ TPM_STATE_DIR=/tmp/mytpm1
 TPM_CTRL_SOCK=/tmp/mytpm1/swtpm-sock
 
 
+TAP_NET_NAME="tap0"
+BRIDGE_NET_NAME="br0"
+PHYSICAL_NET_NAME="enx00d2b1ec4a05"
+
 BIOS_SRC_DIR="/usr/share/OVMF"
 BIOS_CODE_NAME="OVMF_CODE.fd"
 BIOS_VARS_NAME="OVMF_VARS.fd"
@@ -84,10 +88,25 @@ function setup_shared_disk () {
 }
 
 function mount_shared_disk () {
+        echo "DO FULL WINDOWS SHUTDOWN WITH SHIFT+POWER OFF"
         loop_dev=$(udisksctl loop-setup --file ${SHARED_DISK} | sed -E 's/Mapped file .* as ([^[:space:]]*)\./\1/')
         trap "udisksctl loop-delete --block-device ${loop_dev}" SIGTERM SIGINT EXIT
         trap "umount ${loop_dev}* 2>/dev/null" SIGTERM SIGINT EXIT
         sleep infinity
+}
+
+function setup_network () {
+        ip link add ${BRIDGE_NET_NAME} type bridge
+        ip tuntap add dev ${TAP_NET_NAME} mode tap
+        ip link set ${TAP_NET_NAME} master ${BRIDGE_NET_NAME}
+        ip link set ${PHYSICAL_NET_NAME} master ${BRIDGE_NET_NAME}
+        ip link set ${BRIDGE_NET_NAME} up
+        ip link set ${TAP_NET_NAME} up
+}
+
+function takedown_network () {
+        ip link del ${BRIDGE_NET_NAME}
+        ip link del ${TAP_NET_NAME}
 }
 
 function install () {
@@ -130,6 +149,11 @@ function launch () {
         fi
 
         launch_tpm
+        local qemu_args="\
+                ${QEMU_ARGS[${windows_version}]} \
+                -netdev tap,id=mynet0,ifname=tap0,script=no,downscript=no \
+                -device e1000,netdev=mynet0,mac=52:55:00:d1:55:01
+        "
         qemu-system-x86_64 ${qemu_args}
 }
 
@@ -141,6 +165,10 @@ elif [ "${ACTION}" = 'setup-shared' ] ; then
         setup_shared_disk
 elif [ "${ACTION}" = 'mount-shared' ] ; then
         mount_shared_disk
+elif [ "${ACTION}" = 'setup-network' ] ; then
+        setup_network
+elif [ "${ACTION}" = 'takedown-network' ] ; then
+        takedown_network
 else
         usage
 fi
