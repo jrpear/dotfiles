@@ -1,5 +1,21 @@
 #!/bin/env bash
 
+# Required packages: qemu-system-x86_64, ovmf (already apt-recommended by qemu-system-x86_64).
+
+# There is a list of possible actions at bottom of script.
+
+# `install` and `setup-network` must be run before `launch`.
+# `install` and `launch` take 10 or 11 as an argument to specify the Windows version.
+
+# `mount-shared` may be run only when Windows is off.
+# `mount-shared` mounts the shared disk, blocks, then unmounts the disk when you give it a CTRL-C.
+
+# You may want to change some of these variables, such as:
+# - PHYSICAL_NET_NAME (the network interface which Windows will be connected to)
+# - WINDOWS_INSTALL_MEDIA (an array containting paths to Windows installation media downloaded from Microsoft)
+# - DISK_SIZE, SHARED_DISK_SIZE
+
+
 ACTION=$1
 shift
 
@@ -15,7 +31,7 @@ TPM_CTRL_SOCK=/tmp/mytpm1/swtpm-sock
 
 TAP_NET_NAME="tap0"
 BRIDGE_NET_NAME="br0"
-PHYSICAL_NET_NAME="enx00d2b1ec4a05"
+PHYSICAL_NET_NAME="enx607d0903a24b"
 
 BIOS_SRC_DIR="/usr/share/OVMF"
 BIOS_CODE_NAME="OVMF_CODE.fd"
@@ -96,6 +112,8 @@ function mount_shared_disk () {
 }
 
 function setup_network () {
+        echo "DO NOT DISCONNECT PHYSICAL NET INTERFACE"
+        echo "SET STATIC IP IN WINDOWS IF NO DNS SERVER"
         ip link add ${BRIDGE_NET_NAME} type bridge
         ip tuntap add dev ${TAP_NET_NAME} mode tap
         ip link set ${TAP_NET_NAME} master ${BRIDGE_NET_NAME}
@@ -151,7 +169,7 @@ function launch () {
         launch_tpm
         local qemu_args="\
                 ${QEMU_ARGS[${windows_version}]} \
-                -netdev tap,id=mynet0,ifname=tap0,script=no,downscript=no \
+                -netdev tap,id=mynet0,ifname=${TAP_NET_NAME},script=no,downscript=no \
                 -device e1000,netdev=mynet0,mac=52:55:00:d1:55:01
         "
         qemu-system-x86_64 ${qemu_args}
