@@ -36,4 +36,5 @@
     "security.workspace.trust.enabled": false,
     "editor.guides.indentation": false,
     "editor.guides.highlightActiveIndentation": false,
+    "git.confirmSync": false,
 }
