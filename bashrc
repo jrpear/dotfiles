@@ -44,8 +44,10 @@ GIT_PROMPT_INFO="${COLOR_ORIG}\$(git_leader)${COLOR_RED}\$(git_branch)${COLOR_OR
 
 PS1="$(user)@${COLOR_CYAN}\h${COLOR_ORIG} ${COLOR_MAGENTA}[\W]${COLOR_ORIG} ${GIT_PROMPT_INFO}${COLOR_ORIG}"
 
+
 HISTSIZE=1000
 HISTCONTROL=ignoreboth:erasedups
+PROMPT_COMMAND="history -a; history -c; history -r"
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
@@ -89,6 +91,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+
+# ====================== ENVIRONMENT VARIABLES =========================
+
+export PATH=${PATH}:${HOME}/.local/bin:${HOME}/.cargo/bin
 
 # ============================= INCLUDES ===============================
 
