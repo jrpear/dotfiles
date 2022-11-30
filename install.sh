@@ -31,6 +31,8 @@ ln -s ${SCRIPT_DIR}/vimrc ${HOME}/.config/nvim/init.vim 2>/dev/null
 ln -s ${SCRIPT_DIR}/vimrc.plugins ${HOME}/.config/nvim/plugins.vim 2>/dev/null
 ln -s ${SCRIPT_DIR}/vim ${HOME}/.local/share/nvim/site --no-target-directory 2>/dev/null
 
+git submodule update --init --recursive
+
 # Tmux
 
 ln -s ${SCRIPT_DIR}/tmux.conf ${HOME}/.tmux.conf 2>/dev/null
@@ -62,4 +64,7 @@ mkdir -p ${HOME}/.config/Code/User
 ln -s ${SCRIPT_DIR}/config/Code/User/settings.json \
   ${HOME}/.config/Code/User/settings.json 2>/dev/null
 
-git submodule update --init --recursive
+# Windows VM management script
+
+mkdir -p ${HOME}/.local/bin
+ln -s ${SCRIPT_DIR}/local/bin/windows.sh ${HOME}/.local/bin/windows.sh 2>/dev/null
