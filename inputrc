@@ -1,1 +1,14 @@
 set editing-mode vi
+
+set colored-stats on
+set colored-completion-prefix on
+
+# This shouldn't need to be turned on, but meta keybindings don't work without it. Bug in readline?
+set convert-meta on
+
+set keymap vi-command
+
+q: start-kbd-macro
+Meta-q: end-kbd-macro
+Q: call-last-kbd-macro
+
