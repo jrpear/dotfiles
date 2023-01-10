@@ -3,12 +3,41 @@ set editing-mode vi
 set colored-stats on
 set colored-completion-prefix on
 
-# This shouldn't need to be turned on, but meta keybindings don't work without it. Bug in readline?
-set convert-meta on
-
 set keymap vi-command
 
-q: start-kbd-macro
-Meta-q: end-kbd-macro
-Q: call-last-kbd-macro
+"q": start-kbd-macro
+"\eq": end-kbd-macro
+"Q": call-last-kbd-macro
+
+$if GDB
+	set keymap vi-command
+	"gt": tui-change-windows
+
+	# Use \C-x rather than the vim \C-w for windowing because \C-w is a
+	# common terminal control character so it's not passed as input to gdb
+	"\C-xo": tui-delete-other-windows
+	"\C-x\C-o": tui-delete-other-windows
+
+	"\C-xj": tui-other-window
+	"\C-x\C-j": tui-other-window
+	"\C-xk": tui-other-window
+	"\C-x\C-k": tui-other-window
+
+	"\C-6": tui-switch-mode
+	"\C-^": tui-switch-mode
+
+	set keymap vi-insert
+	# Use \C-x rather than the vim \C-w for windowing because \C-w is a
+	# common terminal control character so it's not passed as input to gdb
+	"\C-xo": tui-delete-other-windows
+	"\C-x\C-o": tui-delete-other-windows
+
+	"\C-xj": tui-other-window
+	"\C-x\C-j": tui-other-window
+	"\C-xk": tui-other-window
+	"\C-x\C-k": tui-other-window
+
+	"\C-6": tui-switch-mode
+	"\C-^": tui-switch-mode
+$endif
 

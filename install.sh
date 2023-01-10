@@ -33,9 +33,13 @@ ln -s ${SCRIPT_DIR}/vim ${HOME}/.local/share/nvim/site --no-target-directory 2>/
 
 git submodule update --init --recursive
 
-# Tmux
+# GDB
 
-ln -s ${SCRIPT_DIR}/tmux.conf ${HOME}/.tmux.conf 2>/dev/null
+ln -s ${SCRIPT_DIR}/gdbinit ${HOME}/.gdbinit 2>/dev/null
+
+# Screen
+
+ln -s ${SCRIPT_DIR}/screenrc ${HOME}/.screenrc 2>/dev/null
 
 # Git
 
