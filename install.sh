@@ -3,10 +3,13 @@
 SCRIPT_DIR=$(realpath $(dirname "${BASH_SOURCE[0]}"))
 
 # Environment variables
+# Must copy these rather than symlink because systemd-environment-d-generator silently skips symlinks
 
 mkdir -p ${HOME}/.config/environment.d
-ln -s ${SCRIPT_DIR}/config/environment.d/ff-wayland.conf \
+cp ${SCRIPT_DIR}/config/environment.d/ff-wayland.conf \
   ${HOME}/.config/environment.d/ff-wayland.conf 2>/dev/null
+cp ${SCRIPT_DIR}/config/environment.d/enable-ibus.conf \
+  ${HOME}/.config/environment.d/enable-ibus.conf 2>/dev/null
 
 # Bash
 
