@@ -75,6 +75,10 @@ function vinfo() {
 	vim -c "Info $1" -c "silent only"
 }
 
+function ptyrun() {
+	socat - EXEC:"$*",pty,setsid,ctty
+}
+
 alias g=git
 alias o=xdg-open
 
