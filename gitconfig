@@ -24,6 +24,7 @@
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+	hideresolved = true
 [sendemail]
 	smtpserver = mail.pearson.onl
 	smtpuser = jack@pearson.onl
