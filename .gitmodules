@@ -52,3 +52,6 @@
 [submodule "vim/pack/jrpear/opt/nvim-lspconfig"]
 	path = vim/pack/jrpear/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "vim/pack/jrpear/start/vim-beancount"]
+	path = vim/pack/jrpear/start/vim-beancount
+	url = git@github.com:nathangrigg/vim-beancount.git
