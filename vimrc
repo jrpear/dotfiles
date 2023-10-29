@@ -30,6 +30,8 @@ if v:shell_error == 0
 	exec "cd" gitroot
 endif
 
+" TODO digraphs <| ⟨ and >| ⟩, also add to Xcompose
+
 " Trim whitespace on save
 
 function! <SID>StripTrailingWhitespaces()
