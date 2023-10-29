@@ -55,3 +55,6 @@
 [submodule "vim/pack/jrpear/start/vim-beancount"]
 	path = vim/pack/jrpear/start/vim-beancount
 	url = git@github.com:nathangrigg/vim-beancount.git
+[submodule "vim/pack/jrpear/start/mediawiki.vim"]
+	path = vim/pack/jrpear/start/mediawiki.vim
+	url = git@github.com:chikamichi/mediawiki.vim.git
