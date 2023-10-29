@@ -31,7 +31,7 @@ TPM_CTRL_SOCK=/tmp/mytpm1/swtpm-sock
 
 TAP_NET_NAME="tap0"
 BRIDGE_NET_NAME="br0"
-PHYSICAL_NET_NAME="enx607d0903a24b"
+PHYSICAL_NET_NAME="wlp170s0"
 
 BIOS_SRC_DIR="/usr/share/OVMF"
 BIOS_CODE_NAME="OVMF_CODE.fd"
@@ -46,7 +46,7 @@ BIOS_VARSS=([10]="${BIOS_VARS_BASE}.10" [11]="${BIOS_VARS_BASE}.11")
 USER_DOWNLOADS="${HOME}/Downloads"
 
 WINDOWS_DISK_NAMES=([10]="${STATE_DIR}/windows10.qcow2" [11]="${STATE_DIR}/windows11.qcow2")
-WINDOWS_INSTALL_MEDIA=([10]="${USER_DOWNLOADS}/Win10_21H2_English_x64.iso" [11]="${USER_DOWNLOADS}/Win11_English_x64v1.iso")
+WINDOWS_INSTALL_MEDIA=([10]="${USER_DOWNLOADS}/Win10_21H2_English_x64.iso" [11]="${USER_DOWNLOADS}/Win11_22H2_English_x64v2.iso")
 
 SHARED_DISK_NAME=shared_disk.raw
 SHARED_DISK="${STATE_DIR}/${SHARED_DISK_NAME}"
@@ -63,6 +63,8 @@ QEMU_BASE_ARGS="\
         -tpmdev emulator,id=tpm0,chardev=chrtpm \
         -device tpm-tis,tpmdev=tpm0 \
         -drive file=${SHARED_DISK},format=raw,if=ide,index=1 \
+        -device qemu-xhci \
+        -device usb-host,hostbus=3,hostport=7 \
 "
 
 QEMU_ARGS=(
