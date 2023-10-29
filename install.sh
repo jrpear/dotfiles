@@ -59,6 +59,11 @@ ln -s ${SCRIPT_DIR}/ipython/profile_default/ipython_config.py \
 ln -s ${SCRIPT_DIR}/ipython/profile_default/startup/rc.py \
   ${HOME}/.ipython/profile_default/startup/rc.py 2>/dev/null
 
+# Texdoc
+
+mkdir -p ${HOME}/texmf/texdoc
+ln -s ${SCRIPT_DIR}/texmf/texdoc/texdoc.cnf ${HOME}/texmf/texdoc/texdoc.cnf 2>/dev/null
+
 # Sway
 
 mkdir -p ${HOME}/.config/sway{,lock}
