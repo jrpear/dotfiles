@@ -1,2 +1,2 @@
-set formatoptions+=a
+" set formatoptions+=a
 set textwidth=78
