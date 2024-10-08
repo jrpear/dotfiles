@@ -16,10 +16,6 @@ cp ${SCRIPT_DIR}/config/environment.d/enable-ibus.conf \
 ln -s ${SCRIPT_DIR}/bashrc ${HOME}/.bashrc 2>/dev/null
 ln -s ${SCRIPT_DIR}/bash_profile ${HOME}/.bash_profile 2>/dev/null
 
-# Readline
-
-ln -s ${SCRIPT_DIR}/inputrc ${HOME}/.inputrc 2>/dev/null
-
 # Core Vim
 
 ln -s ${SCRIPT_DIR}/vimrc ${HOME}/.vimrc 2>/dev/null
