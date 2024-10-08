@@ -44,8 +44,6 @@ ln -s ${SCRIPT_DIR}/screenrc ${HOME}/.screenrc 2>/dev/null
 
 ln -s ${SCRIPT_DIR}/gitconfig ${HOME}/.gitconfig 2>/dev/null
 ln -s ${SCRIPT_DIR}/gitignore ${HOME}/.gitignore 2>/dev/null
-mkdir -p ${HOME}/.git_template/hooks
-ln -s ${SCRIPT_DIR}/git_template/hooks/ctags ${HOME}/.git_template/hooks/ctags 2>/dev/null
 
 # IPython
 
