@@ -51,7 +51,6 @@ PROMPT_COMMAND="history -a; history -c; history -r"
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
-set -o vi
 export EDITOR=vi
 
 # ============================== ALIASES ===============================
