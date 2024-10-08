@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 SCRIPT_DIR=$(realpath $(dirname "${BASH_SOURCE[0]}"))
 
 # Environment variables
@@ -36,6 +38,7 @@ while [ "${#repo_to_home[@]}" -gt 0 ]; do
 
     if [ ! -e "$home_path" ] || [ -L "$home_path" ]; then
 	ln --symbolic --force --no-target-directory "$repo_path" "$home_path"
+	echo "installed $home_path"
     else
 	echo "skipping $home_path; exists and is not symlink"
     fi
