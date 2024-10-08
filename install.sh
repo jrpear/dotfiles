@@ -11,19 +11,25 @@ cp ${SCRIPT_DIR}/config/environment.d/ff-wayland.conf \
 cp ${SCRIPT_DIR}/config/environment.d/enable-ibus.conf \
   ${HOME}/.config/environment.d/enable-ibus.conf 2>/dev/null
 
-declare -A repo_to_home
+repo_to_home=(
+    "bashrc" ".bashrc"
+    "bash_profile" ".bash_profile"
+)
 
-# Bash
-repo_to_home["bashrc"]=".bashrc"
-repo_to_home["bash_profile"]=".bash_profile"
+while [ "${#repo_to_home[@]}" -gt 0 ]; do
+    repo_path="$SCRIPT_DIR/${repo_to_home[0]}"
+    home_path="$HOME/${repo_to_home[1]}"
 
-for repo_rel_path in "${!repo_to_home[@]}"; do
-    home_path="$HOME/${repo_to_home[$repo_rel_path]}"
     if [ ! -e "$home_path" ] || [ -L "$home_path" ]; then
-	ln --symbolic --force "$SCRIPT_DIR/$repo_rel_path" "$home_path"
+	ln --symbolic --force "$repo_path" "$home_path"
     else
 	echo "skipping $home_path; exists and is not symlink"
     fi
+
+    # pop off first two elements
+    unset repo_to_home[0]
+    unset repo_to_home[1]
+    repo_to_home=("${repo_to_home[@]}")
 done
 
 # Core Vim
