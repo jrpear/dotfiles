@@ -53,12 +53,6 @@ ln -s ${SCRIPT_DIR}/ipython/profile_default/ipython_config.py \
 ln -s ${SCRIPT_DIR}/ipython/profile_default/startup/rc.py \
   ${HOME}/.ipython/profile_default/startup/rc.py 2>/dev/null
 
-# Sway
-
-mkdir -p ${HOME}/.config/sway{,lock}
-ln -s ${SCRIPT_DIR}/config/sway/config ${HOME}/.config/sway/config 2>/dev/null
-ln -s ${SCRIPT_DIR}/config/swaylock/config ${HOME}/.config/swaylock/config 2>/dev/null
-
 # VSCode
 
 mkdir -p ${HOME}/.config/Code/User
