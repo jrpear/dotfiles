@@ -35,7 +35,7 @@ while [ "${#repo_to_home[@]}" -gt 0 ]; do
     home_path="$HOME/${repo_to_home[1]}"
 
     if [ ! -e "$home_path" ] || [ -L "$home_path" ]; then
-	ln --symbolic --force "$repo_path" "$home_path"
+	ln --symbolic --force --no-target-directory "$repo_path" "$home_path"
     else
 	echo "skipping $home_path; exists and is not symlink"
     fi
